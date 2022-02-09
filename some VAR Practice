@@ -1,0 +1,63 @@
+# Continuación de DataType
+
+# 7- Escribir un programa que pida al usuario su peso (en kg) y estatura (en metros), calcule el índice de masa corporal y lo almacene en una variable, y muestre por pantalla la frase
+# Tu índice de masa corporal es <imc> donde <imc> es el índice de masa corporal calculado redondeado con dos decimales.
+
+peso = float(input("introduzca su peso en Kg: "))
+estatura = float(input("introduzca su estatura en metros: "))
+IMC = peso/estatura**2                                                #Formula de IMC
+IMC = round (IMC,2)                                                     #round (x,2) redondea esa variable a 2 cifras decimales o las que se indiquen
+print ("Tu índice de masa corporal es: " + str (IMC))
+
+
+# 8- Escribir un programa que pida al usuario dos números enteros y muestre por pantalla la <n> entre <m> 
+# da un cociente <c> y un resto <r> donde <n> y <m> son los números introducidos por el usuario, 
+# y <c> y <r> son el cociente y el resto de la división entera respectivamente.
+
+n = int(input ("introduzca un número n: "))
+m = int(input ("introduzca un número m: "))
+c = int (n / m)                          #Tambien se puede utilizar la division entera float (n)//float(m) arroja resultado entero
+r = int (n - c*m)                       #Para obtener el resto tambien se puede utilizar n % m (esta operacion divide y devuelve el resto)
+print (" el cociente es: " + str(c))
+print (" el resto es: " + str(r))
+
+# 9- Escribir un programa que pregunte al usuario una cantidad a invertir, el interés anual y el número de años, 
+# y muestre por pantalla el capital obtenido en la inversión. Interes compuesto: Capital = (1 + interes/100)^periodos
+
+monto = float(input("ingrese monto a invertir: "))
+interes = float(input("ingrese interés anual: "))
+years = float(input("ingrese número de años: "))
+capital = (1 + interes)**years
+print ("El capital a obtener por la inversión es: " + str(capital))
+print ("Repito, el capital a obtener por la inversión es: " + str(round(capital * (interes / 100 + 1) ** years, 2))) #Otra manera
+
+# 10- Una juguetería tiene mucho éxito en dos de sus productos: payasos y muñecas. Suele hacer venta por correo y la 
+# empresa de logística les cobra por peso de cada paquete así que deben calcular el peso de los payasos y muñecas que 
+# saldrán en cada paquete a demanda. Cada payaso pesa 112 g y cada muñeca 75 g. Escribir un programa que lea el 
+# número de payasos y muñecas vendidos en el último pedido y calcule el peso total del paquete que será enviado.
+
+Pedido = {"payasos": int(input("inserte número de payasos: ")), "muñecas": int(input("inserte número de muñecas: ")) }
+
+peso = (Pedido.get("payasos"))*112 + (Pedido.get("muñecas"))*75   #get() Recibe como parámetro una clave o key del diccionario (Pedidos), devuelve el valor de la clave. Si no lo encuentra, devuelve un objeto none.
+print ("El peso total del pedido es: " + str(peso) + " g")
+
+
+# 11- Imagina que acabas de abrir una nueva cuenta de ahorros que te ofrece el 4% de interés al año. 
+# Estos ahorros debido a intereses, que no se cobran hasta finales de año, se te añaden al balance final de tu cuenta de ahorros.
+#  Escribir un programa que comience leyendo la cantidad de dinero depositada en la cuenta de ahorros, introducida por el usuario. 
+# Después el programa debe calcular y mostrar por pantalla la cantidad de ahorros tras el primer, segundo y tercer años. 
+# Redondear cada cantidad a dos decimales
+
+monto = float(input("introduzca cantidad a depositar"))
+año1 = round(monto*(0.04 + 1),2)
+año2 = round(año1*(0.04 + 1),2)
+año3 = round(año2*(0.04 + 1),2)
+
+print ("Balance año 1: " + str(año1))
+print ("Balance año 2: " + str(año2))
+print ("Balance año 3: " + str(año3))
+
+
+
+
+
